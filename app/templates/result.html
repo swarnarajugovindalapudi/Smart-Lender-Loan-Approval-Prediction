@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Lender - Result{% endblock %}
+
+{% block content %}
+<div class="container result-container">
+    <div class="result-card">
+        {% if error %}
+            <div class="status-icon error-icon">⚠️</div>
+            <h2>Processing Error</h2>
+            <p class="error-text">There was an issue processing your application: {{ error }}</p>
+            <p>Please check your inputs and try again.</p>
+        {% elif is_approved %}
+            <div class="status-icon success-icon">✓</div>
+            <h2 class="success-text">Loan Eligibility Result</h2>
+            <p>Based on the details provided, your loan application has been <strong>Approved</strong>.</p>
+            <p>Our representative will contact you shortly to proceed with the documentation.</p>
+        {% else %}
+            <div class="status-icon reject-icon">✗</div>
+            <h2 class="reject-text">Loan Eligibility: Not Approved</h2>
+            <p>We are sorry, but your loan application does not meet our current lending criteria.</p>
+            <p>We recommend improving your credit history or adjusting the loan amount before reapplying.</p>
+        {% endif %}
+
+        <div class="result-actions">
+            <a href="/predict" class="btn btn-secondary">Submit Another Application</a>
+            <a href="/" class="btn btn-primary">Return Home</a>
+        </div>
+        
+        <div style="margin-top: 2rem; font-size: 0.85rem; color: #777;">
+            <p><em>Disclaimer: This prediction is generated using a machine learning model and should be considered an assisting recommendation rather than a final lending decision.</em></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

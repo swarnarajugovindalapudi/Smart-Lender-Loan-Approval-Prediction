@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Lender - Home{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container hero-container" style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <div class="hero-text" style="flex: 1; min-width: 300px; text-align: left;">
+            <h1>Smart Loan Eligibility Prediction</h1>
+            <p>Smart Lender uses advanced predictive analytics to give you fair, transparent, and instant loan decisions. Let us help you achieve your financial goals.</p>
+            <a href="/predict" class="btn btn-primary">Check Your Eligibility</a>
+        </div>
+        <div class="hero-image" style="flex: 1; min-width: 300px; text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 200px; height: 200px; color: #ff9800;">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<section class="features-section container">
+    <h2>Why Choose Smart Lender?</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Quick Processing</h3>
+            <p>Our automated systems ensure that your application is processed securely and swiftly without unnecessary delays.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Fair Assessment</h3>
+            <p>We evaluate your profile using a balanced combination of income metrics, credit history, and employment factors.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Transparent Criteria</h3>
+            <p>No hidden variables. We provide clear, straightforward decisions based on your real financial situation.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

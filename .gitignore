@@ -135,8 +135,3 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-# Project-specific: Ignore model binaries and raw datasets except for placeholder files
-dataset/*
-!dataset/.gitkeep
-models/*
-!models/.gitkeep
