@@ -56,13 +56,20 @@ SmartLender/
 The project strictly uses the **SkillWallet Loan Prediction Dataset**. The data contains records of past applicants, detailing their demographic information (Gender, Education, Dependents, Marital Status) and financial history (Applicant Income, Co-applicant Income, Loan Amount, Credit History).
 
 ## ML Pipeline
-1. **Data Cleaning:** Imputed missing numerical values with medians and categorical values with modes.
-2. **Encoding:** Converted categorical strings into integers using `LabelEncoder`.
-3. **Balancing:** Addressed the class imbalance in loan approvals using SMOTE (Synthetic Minority Over-sampling Technique).
-4. **Scaling:** Scaled numerical data using `StandardScaler` to ensure features had uniform magnitude.
+1. **Data Cleaning:** Imputed missing numerical values with medians and categorical values with modes. Missing values distribution was carefully analyzed.
+2. **EDA:** Generated distribution plots, correlation heatmaps, feature importance charts, and model accuracy comparisons.
+3. **Encoding:** Converted categorical strings into integers using `LabelEncoder`.
+4. **Balancing:** Addressed the class imbalance in loan approvals using SMOTE (Synthetic Minority Over-sampling Technique).
+5. **Scaling:** Scaled numerical data using `StandardScaler` to ensure features had uniform magnitude.
 
 ## Model Selection
-Multiple models were evaluated including Logistic Regression, Decision Trees, and Random Forests. **Random Forest Classifier** was selected as the final model due to its high accuracy (~80.3%) and robustness against overfitting. 
+Multiple models were rigorously trained and evaluated:
+- Decision Tree
+- Random Forest
+- K-Nearest Neighbors (KNN)
+- XGBoost
+
+For each model, a Classification Report and Confusion Matrix were generated. The best model was automatically selected based on accuracy. **Random Forest Classifier** emerged as the highest-performing model on this specific dataset partition, proving more robust than XGBoost against overfitting in this instance.
 
 ## Installation Steps
 1. Ensure Python 3.8+ is installed on your machine.
@@ -81,16 +88,22 @@ Multiple models were evaluated including Logistic Regression, Decision Trees, an
    pip install -r requirements.txt
    ```
 
-## Running the Application
-1. Navigate to the `app` directory:
+## Running the Application Locally
+1. Navigate to the project root directory.
+2. Start the Flask application as a module:
    ```bash
-   cd app
-   ```
-2. Start the Flask application:
-   ```bash
-   python app.py
+   python -m app.app
    ```
 3. Open your web browser and go to `http://127.0.0.1:5000/`
+
+## Deployment (Render Compatibility)
+The application is configured to run effortlessly on cloud platforms like [Render](https://render.com/).
+- **Requirements:** The `requirements.txt` includes `gunicorn`, a production-ready WSGI HTTP server.
+- **Start Command:** When deploying to Render, set the start command to:
+  ```bash
+  gunicorn app.app:app
+  ```
+This natively bypasses the need for a `Procfile` while maintaining standard deployment practices.
 
 ## Screenshots
 *(Insert screenshots of the Landing Page, Prediction Form, and Result Pages here)*
