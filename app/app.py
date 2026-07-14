@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils.model_helper import predictor
+from app.utils.model_helper import predictor
 import traceback
 
 app = Flask(__name__)
@@ -29,6 +29,8 @@ def predict():
             print(f"Prediction Error: {traceback.format_exc()}")
             return render_template('result.html', error=str(e))
 
-if __name__ == '__main__':
-    # Run in debug mode for local development
-    app.run(debug=True, port=5000)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
