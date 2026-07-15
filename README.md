@@ -1,5 +1,7 @@
 # Smart Lender - Loan Approval Prediction System
 
+live demo : https://smart-lender-loan-approval-prediction-pfqs.onrender.com
+
 ## Project Overview
 Smart Lender is a machine learning-based web application designed to predict the eligibility of loan applicants. By leveraging historical financial data, the system provides automated, fair, and transparent recommendations on whether a loan should be approved or rejected. This project was built to demonstrate the end-to-end integration of a trained machine learning model with a web-based user interface.
 
